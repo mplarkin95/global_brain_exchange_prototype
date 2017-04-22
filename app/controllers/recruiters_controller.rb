@@ -31,11 +31,8 @@ class RecruitersController < ApplicationController
 
 	
 	private
-
 		def recruiter_params
 			params.require(:recruiter).permit(:name, :bio)
 		end
-
-	end
-
 end
+
