@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170420062017) do
     t.string   "name"
     t.string   "school"
     t.text     "bio"
-    t.integer  "gpa"
+    t.float    "gpa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

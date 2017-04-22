@@ -1,0 +1,6 @@
+<%= form_for(@student) do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Biography:  <%= f.text_field :bio%><br />
+  GPA: <%= f.float_field :gpa%><br />
+  School: <%= f.text_field :school%><br />
+<% end %>

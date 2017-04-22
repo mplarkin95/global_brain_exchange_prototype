@@ -4,11 +4,6 @@ class StudentsController < ApplicationController
 		@owner = (user_signed_in? && User.is_owner?(current_user,@student))
 	end
 
-
-
-
-
-
 	def edit
 		student = Student.find(params[:id])
 		if user_signed_in? && User.is_owner?(current_user,student)
