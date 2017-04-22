@@ -1,10 +1,28 @@
 class RecruitersController < ApplicationController
 
+	def show
+		@recruiter = Recruiter.find(params[:id])
+		@owner = (user_signed_in? && User.is_owner?(current_user,@recruiter))
+	end
+
+	
+
+
 
 	def edit
-		if user_signed_in? && User.is_owner?(current_user.id,"Recruiter",params[:id])
-			@recruiter = Recruiter.find(params[:id])
+		recruiter = Recruiter.find(params[:id])
+		if user_signed_in? && User.is_owner?(current_user, recruiter)
+			@recruiter = recruiter
 		else
+			redirect_to root_url
+		end
+	end
+
+	def update
+		if current_user.meta.update(recruiter_params)
+			redirect_to root_url
+		else
+			flash[:danger] = "error"
 			redirect_to root_url
 		end
 
@@ -12,6 +30,12 @@ class RecruitersController < ApplicationController
 
 
 	
+	private
 
+		def recruiter_params
+			params.require(:recruiter).permit(:name, :bio)
+		end
+
+	end
 
 end

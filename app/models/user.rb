@@ -7,12 +7,11 @@ class User < ApplicationRecord
   belongs_to :meta, polymorphic: true
   validates :meta_type , presence: true
 
-  def self.is_owner?(current_user_id,meta_type,meta_id)
-    u = User.where({meta_type: meta_type, meta_id: meta_id}).take
-    if u.id != current_user_id
-      return false
-    else
+  def self.is_owner?(current_user,meta_object)
+    if current_user.meta == meta_object
       return true
+    else
+      return false
     end
   end
 end
