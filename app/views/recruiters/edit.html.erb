@@ -1,1 +1,5 @@
-<%= @recruiter %>
+<%= form_for(@recruiter) do |f| %>
+	Name: <%= f.text_field :name %><br />
+	Biography:  <%= f.text_area :bio%><br />
+	<%= f.submit "Submit" %>
+<% end %>

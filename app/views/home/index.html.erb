@@ -1,12 +1,13 @@
 <h1>Welcome</h1>
 <% if @user %>
-	<%=  @profile.name%>
+	<h2><%=  @profile.name %></h2>
 	<% if @student %>
 		<h4> This is a student profile </h4>
 	<% else %>
 		<h4> This is a recruiter profile </h4>
 	<% end %>
-	<%=   @profile.bio %> 
+	<h3> Bio </h3>
+	<%= @profile.bio%> <hr />
 <%= link_to "edit", [:edit , @profile] %>
 <%= link_to "logout", destroy_user_session_path, :method => :delete %>
 <% else %>

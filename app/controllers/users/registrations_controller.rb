@@ -56,7 +56,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       s = Student.new
       s.save
-      @user.meta_id = s
+      @user.meta_id = s.id
       @user.save
       edit_student_path s
 
