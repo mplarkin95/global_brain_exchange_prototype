@@ -3,5 +3,6 @@
   Biography:  <%= f.text_area :bio%><br />
   GPA: <%= f.number_field :gpa, class: :text_field, step: :any%><br />
   School: <%= f.text_field :school%><br />
+  Profile Picture: <%= f.file_field :pdf %><br />
   <%= f.submit "Submit" %>
 <% end %>
