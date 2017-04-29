@@ -1,0 +1,13 @@
+<h2><%=  @profile.name %></h2>
+<h3> Student </h3>
+	School Name: <%= @profile.school %><br />
+	GPA: 
+	<%= @profile.gpa %><hr />
+	<h3> Bio </h3>
+	<%= @profile.bio %> <hr />
+<% if @owner  %>
+	<%= link_to "edit", edit_student_path(@profile) %>
+	<%= link_to "logout", destroy_user_session_path, :method => :delete %>
+<% else %>
+	<%= link_to "signup", new_user_registration_path %>
+<% end %>

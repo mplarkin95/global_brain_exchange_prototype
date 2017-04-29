@@ -1,15 +1,8 @@
-<h1>Welcome</h1>
-<% if @user %>
-	<h2><%=  @profile.name %></h2>
-	<% if @student %>
-		<h4> This is a student profile </h4>
-	<% else %>
-		<h4> This is a recruiter profile </h4>
-	<% end %>
-	<h3> Bio </h3>
-	<%= @profile.bio%> <hr />
-<%= link_to "edit", [:edit , @profile] %>
+<h1> Welcome </h1>
+<% if @profile %>
+<%= link_to "My Profile",  @profile.meta %>
 <%= link_to "logout", destroy_user_session_path, :method => :delete %>
 <% else %>
 <%= link_to "signup", new_user_registration_path %>
+<%= link_to "sign in", new_user_session_path %>
 <% end %>

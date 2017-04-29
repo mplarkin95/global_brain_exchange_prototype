@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
 	def show
-		@Student = Student.find(params[:id])
-		@owner = (user_signed_in? && User.is_owner?(current_user,@student))
+		@profile = Student.find(params[:id])
+		@owner = (user_signed_in? && User.is_owner?(current_user,@profile))
 	end
 
 	def edit

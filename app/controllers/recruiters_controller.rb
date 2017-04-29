@@ -1,8 +1,8 @@
 class RecruitersController < ApplicationController
 
 	def show
-		@recruiter = Recruiter.find(params[:id])
-		@owner = (user_signed_in? && User.is_owner?(current_user,@recruiter))
+		@profile = Recruiter.find(params[:id])
+		@owner = (user_signed_in? && User.is_owner?(current_user,@profile))
 	end
 
 	
