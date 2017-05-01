@@ -1,7 +1,16 @@
 class StudentsController < ApplicationController
 	def show
 		@profile = Student.find(params[:id])
-		@owner = (user_signed_in? && User.is_owner?(current_user,@profile))
+		if user_signed_in?
+			@owner = User.is_owner?(current_user,@profile)
+		end
+		if @owner
+			@connections = current_user.friends
+		else
+			@friendable = (current_user.meta_type != "Student")
+			@connected = current_user.friends_with?(@profile.user)
+		end
+
 	end
 
 	def edit

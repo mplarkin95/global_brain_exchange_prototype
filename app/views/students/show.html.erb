@@ -6,8 +6,25 @@
 	<h3> Bio </h3>
 	<%= @profile.bio %> <hr />
 <% if @owner  %>
+	<h3> Connections </h3>
+	
+		<% if @connections.count > 0 %>
+		<ul>
+		<% @connections.each do |user| %>
+			<li><%= link_to  user.meta.name , user.meta %></li>
+		<% end %>
+		</ul>
+		<% else %>
+
+		You have no connections
+		<% end %>
+	<hr />
 	<%= link_to "edit", edit_student_path(@profile) %>
 	<%= link_to "logout", destroy_user_session_path, :method => :delete %>
-<% else %>
-	<%= link_to "signup", new_user_registration_path %>
+<% elsif @friendable %>
+	<% if @connected %>
+		You are connected 
+	<% else %>
+		<a class="button"> connect </a>
+	<% end %>
 <% end %>
