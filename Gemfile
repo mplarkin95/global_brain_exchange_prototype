@@ -43,6 +43,8 @@ gem 'devise'
 
 gem 'rolify'
 
+gem 'has_friendship'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

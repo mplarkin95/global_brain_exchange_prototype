@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  rolify
+  has_friendship
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :meta, polymorphic: true
@@ -16,5 +16,7 @@ class User < ApplicationRecord
       return false
     end
   end
+
+
 
 end
