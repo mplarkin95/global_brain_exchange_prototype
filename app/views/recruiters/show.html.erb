@@ -1,5 +1,5 @@
 <h2><%=  @profile.name %></h2>
-<h3>Recruiter</h3><hr />
+<h3><i>Recruiter</i></h3><hr />
 	<h3> Bio </h3>
 	<%= @profile.bio %> <hr />
 <% if @owner %>
@@ -20,6 +20,6 @@
 	<% if @connected %>
 		You are connected 
 	<% else %>
-		<a class="btn"> connect </a>
+		<a class="btn btn-primary"> connect </a>
 	<% end %>
 <% end %>

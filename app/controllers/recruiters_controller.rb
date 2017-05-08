@@ -15,9 +15,6 @@ class RecruitersController < ApplicationController
 	end
 
 	
-
-
-
 	def edit
 		recruiter = Recruiter.find(params[:id])
 		if user_signed_in? && User.is_owner?(current_user, recruiter)

@@ -1,5 +1,6 @@
+
 <h2><%=  @profile.name %></h2>
-<h3> Student </h3>
+<h3><i> Student </i></h3>
 	School Name: <%= @profile.school %><br />
 	GPA: 
 	<%= @profile.gpa %><hr />
@@ -25,6 +26,7 @@
 	<% if @connected %>
 		You are connected 
 	<% else %>
-		<a class="button"> connect </a>
+		<a class="btn btn-primary"> connect </a>
 	<% end %>
 <% end %>
+
