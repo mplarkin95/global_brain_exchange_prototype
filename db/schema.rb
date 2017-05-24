@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170501223416) do
     t.float    "gpa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.         "pdf"
   end
 
   create_table "users", force: :cascade do |t|

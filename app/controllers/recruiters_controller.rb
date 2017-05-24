@@ -7,7 +7,7 @@ class RecruitersController < ApplicationController
 		end
 		if @owner
 			@connections = current_user.friends 
-		else
+		elsif user_signed_in?
 			@friendable = (current_user.meta_type != "Recruiter")
 			@connected = current_user.friends_with?(@profile.user)
 		end
