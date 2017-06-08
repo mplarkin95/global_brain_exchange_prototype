@@ -22,7 +22,9 @@
 body {
     overflow-x: hidden;
     @include body-font;
+
 }
+
 
 .text-muted {
     color: $gray-light;
@@ -94,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 40px;
 }
 
-// Custom Navigation Bar
+
 
 
 header {

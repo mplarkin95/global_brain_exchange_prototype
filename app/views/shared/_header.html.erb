@@ -10,9 +10,9 @@
 
 
 	<div class="navbar-nav ml-auto">
-		<%= link_to("Our Team", "#team",:class => "nav-item nav-link" ) %>
-		<% if @profile_signed %>
-		<%= link_to "My Profile",  @profile_signed.meta, :class => "nav-item nav-link" %>
+		<!---<%= link_to("Our Team", "#team",:class => "nav-item nav-link" ) %> -->
+		<% if user_signed_in? %>
+		<%= link_to "My Profile",  current_user.meta, :class => "nav-item nav-link" %>
 		<%= link_to "logout", destroy_user_session_path, :method => :delete, :class => "nav-link nav-item" %>
 		<% else %>
 		<%= link_to "signup", new_user_registration_path, :class => "nav-link nav-item" %>

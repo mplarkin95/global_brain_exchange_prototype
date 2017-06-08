@@ -1,5 +1,16 @@
-<%= form_for(@recruiter) do |f| %>
-	Name: <%= f.text_field :name %><br />
-	Biography:  <%= f.text_area :bio%><br />
-	<%= f.submit "Submit" %>
-<% end %>
+<div class="container-fluid col-md-8 col-offset-2">
+	<div class="form-group">
+	<%= form_for(@recruiter) do |f| %>
+		<%= f.label :name %>
+		<div class="col-md-3">
+			<%= f.text_field :name, :class =>"form-control" %>
+		</div>
+		<%= f.label :bio %>
+		<div class="col-md-8">
+			<%= f.text_area :bio, :class =>"form-control" %>
+		</div>
+		
+	</div>
+		<%= f.button "Submit", :class =>"btn btn-primary" %>
+	<% end %>
+</div>

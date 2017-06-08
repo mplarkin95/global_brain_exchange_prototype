@@ -1,8 +1,11 @@
-<%= form_for(@student) do |f| %>
-  Name: <%= f.text_field :name %><br />
-  Biography:  <%= f.text_area :bio%><br />
-  GPA: <%= f.number_field :gpa, class: :text_field, step: :any%><br />
-  School: <%= f.text_field :school%><br />
-  Profile Picture: <%= f.file_field :pdf %><br />
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="container-fluid col-md-8 col-offset-2">
+	<div class="form-group">
+		<%= form_for(@student) do |f| %>
+		  Name <%= f.text_field :name, :class =>"form-control" %>
+		  Biography  <%= f.text_area :bio, :class =>"form-control" %>
+		  GPA <%= f.number_field :gpa, :class =>"form-control text-field", step: :any%>
+		  School <%= f.text_field :school, :class =>"form-control"%>
+	</div>
+		  <%= f.button "Submit", :class =>"btn btn-primary" %>
+		<% end %>
+</div>
