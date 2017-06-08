@@ -1,11 +1,26 @@
-<div class="row">
-	<div class="col-md-6">
-		<strong><%= link_to "Home" , root_url %></strong>
-	</div>
+<nav class="navbar sticky-top navbar-toggleable-md " style="background-color: #1D2731">
+	<%= link_to("Global Brain Exchange", root_url , :class =>"navbar-brand") %> 
 	
-	<div class="col-md-5">
-		<strong><p align='right'><%= link_to "Search", search_index_path %></p> </strong>
+
+
+
+
+
+
+
+
+	<div class="navbar-nav ml-auto">
+		<%= link_to("Our Team", "#team",:class => "nav-item nav-link" ) %>
+		<% if @profile_signed %>
+		<%= link_to "My Profile",  @profile_signed.meta, :class => "nav-item nav-link" %>
+		<%= link_to "logout", destroy_user_session_path, :method => :delete, :class => "nav-link nav-item" %>
+		<% else %>
+		<%= link_to "signup", new_user_registration_path, :class => "nav-link nav-item" %>
+		<%= link_to "sign in", new_user_session_path, :class => "nav-link nav-item" %>
+		<% end %>
 	</div>
-		
-</div>
-<hr />
+			
+	</nav>
+
+
+ 

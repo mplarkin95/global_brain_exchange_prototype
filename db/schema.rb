@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501223416) do
+ActiveRecord::Schema.define(version: 20170601205916) do
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_countries_on_user_id"
+  end
+
+  create_table "field_interests", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_field_interests_on_student_id"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.string   "friendable_type"
@@ -20,6 +36,14 @@ ActiveRecord::Schema.define(version: 20170501223416) do
     t.datetime "updated_at"
     t.integer  "blocker_id"
     t.integer  "status"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_languages_on_user_id"
   end
 
   create_table "recruiters", force: :cascade do |t|

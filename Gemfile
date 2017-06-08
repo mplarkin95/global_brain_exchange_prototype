@@ -45,6 +45,8 @@ gem 'rolify'
 
 gem 'has_friendship'
 
+gem 'font-awesome-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
