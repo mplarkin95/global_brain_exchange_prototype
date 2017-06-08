@@ -17,6 +17,18 @@
 @import "font-awesome";
 @import "bootstrap";
 
+
+
+
+
+
+
+
+.search-item {
+    background-color: $blue;
+    border-color: #1D2731;
+    margin-top: 20px;
+}
 // Global Components
 
 body {
@@ -25,6 +37,9 @@ body {
 
 }
 
+.side-column {
+    background-color: $blue ;
+}
 
 .text-muted {
     color: $gray-light;

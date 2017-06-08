@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 students = Student.create([{name: "Matt", bio:"Matt's  bio", gpa: 4.0, school: 'Clark'}, {name: "Sam", bio: "Sam's Bio",gpa: 2.0, school: "Amherst"}])
 
-recruiters = Recruiter.create([{name: "Alex",bio: "alex's bio"},{name: "Arthur", bio:"arthur's bio"}])
+recruiters = Recruiter.create([{name: "Alex",bio: "alex's bio", school: "Yale"},{name: "Arthur", bio:"arthur's bio", school: "Yale"}])
 
 users = User.create([
 	{email: "matt@gbx.com",password: "qweqwe", password_confirmation: "qweqwe", meta_id: 1, meta_type: "Student"},

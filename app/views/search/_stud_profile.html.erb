@@ -1,0 +1,23 @@
+<div class="container-fluid col-md-3  search-item rounded ">
+	<div class="row ">
+		<div class=" col-md-12   ml-auto">
+			<h2> <%= link_to student.name, student %> </h2>
+		</div>
+		<div class="col-md-6 ">
+			<%= image_tag("matt_pic.jpg" , :class => "img-fluid rounded-circle")  %>
+		</div>
+
+		<div class="col-md-6">
+		<h4> Student Profile: </h4>
+			<ul>
+				<li>GPA: <%= student.gpa %> </li>
+				<li> Languages: Italian, English, python </li>
+				<li> COmputer Science, English, Your mom </li>
+
+			</ul>
+		</div>
+	</div>	
+
+
+
+</div>

@@ -28,9 +28,11 @@ class SearchController < ApplicationController
 
 	def student_search(users, s_name, gpa)
 		s_users = users.joins(:student).where(["students.name LIKE ?", "%#{params[:name]}%"])
-		if gpa
-			s_users = s_users.where(["students.gpa >= ?", gpa])
+		if gpa == ""
+			gpa = 0
 		end
+			s_users = s_users.where(["students.gpa >= ?", gpa])
+		
 		return s_users
 	end
 end
