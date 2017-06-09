@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170608185607) do
-=======
 ActiveRecord::Schema.define(version: 20170608223457) do
->>>>>>> 7c8d9a43345c1dfdb0589e7a3f7f2278bfe0418f
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -54,28 +50,22 @@ ActiveRecord::Schema.define(version: 20170608223457) do
     t.string   "name"
     t.text     "search_preferences"
     t.text     "bio"
-<<<<<<< HEAD
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "school"
-=======
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "school"
     t.string   "propic_file_name"
     t.string   "propic_content_type"
     t.integer  "propic_file_size"
     t.datetime "propic_updated_at"
->>>>>>> 7c8d9a43345c1dfdb0589e7a3f7f2278bfe0418f
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.string   "school"
     t.text     "bio"
-    t.integer  "gpa"
+    t.float    "gpa"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.         "pdf"
     t.string   "propic_file_name"
     t.string   "propic_content_type"
     t.integer  "propic_file_size"

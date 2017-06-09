@@ -16,6 +16,8 @@ class SearchController < ApplicationController
 				@users = student_search(@users,params[:name], 0) 
 			elsif params[:type] == "Recruiter"
 				@users = recruiter_search(@users,params[:name])
+			else
+				@users = []
 			end
 		end
 	end

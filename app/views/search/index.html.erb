@@ -19,14 +19,18 @@
 
 <div class="row container-fluid" >
 
-  <% if @view_type == "Recruiter" or (:type == "Student") %>
+  <% if @view_type == "Recruiter"  %>
+
     <% @users.each do |i| %>
       <%= render partial: "stud_profile", locals: {student: i.meta} %>
     <% end %>
+
   <% else %>
+    
     <% @users.each do |i| %>
       <%= render partial: "rec_profile", locals: {recruiter: i.meta} %>
     <% end %>
+  
   <% end %>
 </div>
 
