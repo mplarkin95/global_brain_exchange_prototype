@@ -1,7 +1,11 @@
 
 <div class="container-fluid col-md-8 ">
 	<div class="form-group">
-	<%= form_for(@recruiter) do |f| %>
+    <%= form_for(@recruiter) do |f| %>
+    <%= f.label :propic %>
+    <div class="col-md-3">  
+      <%= f.file_field :propic, :class =>"form-control"%>
+    </div>
 		<%= f.label :name %>
 		<div class="col-md-3">
 			<%= f.text_field :name, :class =>"form-control" %>
@@ -12,6 +16,6 @@
 		</div>
 		
 	</div>
-		<%= f.button "Submit", :class =>"btn btn-primary" %>
+		<%= f.submit "Submit", :class =>"btn btn-primary" %>
 	<% end %>
 </div>

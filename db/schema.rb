@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170608185607) do
+=======
+ActiveRecord::Schema.define(version: 20170608223457) do
+>>>>>>> 7c8d9a43345c1dfdb0589e7a3f7f2278bfe0418f
 
   create_table "countries", force: :cascade do |t|
     t.string   "name"
@@ -50,35 +54,53 @@ ActiveRecord::Schema.define(version: 20170608185607) do
     t.string   "name"
     t.text     "search_preferences"
     t.text     "bio"
+<<<<<<< HEAD
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "school"
+=======
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "propic_file_name"
+    t.string   "propic_content_type"
+    t.integer  "propic_file_size"
+    t.datetime "propic_updated_at"
+>>>>>>> 7c8d9a43345c1dfdb0589e7a3f7f2278bfe0418f
   end
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
     t.string   "school"
     t.text     "bio"
-    t.float    "gpa"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "gpa"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.         "pdf"
+    t.string   "propic_file_name"
+    t.string   "propic_content_type"
+    t.integer  "propic_file_size"
+    t.datetime "propic_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                        default: "", null: false
+    t.string   "encrypted_password",           default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "meta_id"
     t.string   "meta_type"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["meta_id", "meta_type"], name: "index_users_on_meta_id_and_meta_type"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

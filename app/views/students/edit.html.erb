@@ -1,11 +1,12 @@
 <div class="container-fluid col-md-8 col-offset-2">
 	<div class="form-group">
-		<%= form_for(@student) do |f| %>
+    <%= form_for(@student) do |f| %>
+      Profile Picture <%= f.file_field :propic, :class =>"form-control" %>
 		  Name <%= f.text_field :name, :class =>"form-control" %>
 		  Biography  <%= f.text_area :bio, :class =>"form-control" %>
 		  GPA <%= f.number_field :gpa, :class =>"form-control text-field", step: :any%>
 		  School <%= f.text_field :school, :class =>"form-control"%>
 	</div>
-		  <%= f.button "Submit", :class =>"btn btn-primary" %>
+		  <%= f.submit "Submit", :class =>"btn btn-primary" %>
 		<% end %>
 </div>
