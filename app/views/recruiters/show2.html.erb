@@ -1,0 +1,31 @@
+<div class=row>
+	<div class="col-md-10 offset-md-2">
+		s
+	</div>
+</div>
+<h2><%=  @profile.name %></h2>
+<td><%= image_tag @profile.propic.url, :size => "100x100" %></td>
+<h3><i>Recruiter</i></h3><hr />
+	<h3> Bio </h3>
+	<%= @profile.bio %> <hr />
+<% if @owner %>
+	<h3> Connections </h3>
+	<% if @connections.count > 0 %>
+	<ul>
+		<% @connections.each do |user| %>
+			<li><%= link_to  user.meta.name , user.meta %></li>
+		<% end %>
+		</ul>
+		<% else %>
+			You have no connections
+		<% end %>
+	<hr />
+<%= link_to "edit", edit_recruiter_path(@profile) %>
+<%= link_to "logout", destroy_user_session_path, :method => :delete %>
+<% elsif @friendable %>
+	<% if @connected %>
+		You are connected 
+	<% else %>
+		<a class="btn btn-primary"> connect </a>
+	<% end %>
+<% end %>

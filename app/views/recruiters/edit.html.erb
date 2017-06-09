@@ -14,8 +14,16 @@
 		<div class="col-md-8">
 			<%= f.text_area :bio, :class =>"form-control" %>
 		</div>
+		<%= f.label :school %>
+		<div class="col-md-3">
+			<%= f.text_field :school, :class =>"form-control" %>
+		</div>
+		Country
+		<div class="col-md-3">
+			<%= text_field_tag :country, "", :class =>"form-control" %>
+		</div>
 		
-	</div>
 		<%= f.submit "Submit", :class =>"btn btn-primary" %>
 	<% end %>
+	</div>
 </div>

@@ -1,26 +1,39 @@
-<h2><%=  @profile.name %></h2>
-<td><%= image_tag @profile.propic.url, :size => "100x100" %></td>
-<h3><i>Recruiter</i></h3><hr />
-	<h3> Bio </h3>
-	<%= @profile.bio %> <hr />
-<% if @owner %>
-	<h3> Connections </h3>
-	<% if @connections.count > 0 %>
-	<ul>
-		<% @connections.each do |user| %>
-			<li><%= link_to  user.meta.name , user.meta %></li>
-		<% end %>
-		</ul>
-		<% else %>
-			You have no connections
-		<% end %>
-	<hr />
-<%= link_to "edit", edit_recruiter_path(@profile) %>
-<%= link_to "logout", destroy_user_session_path, :method => :delete %>
-<% elsif @friendable %>
-	<% if @connected %>
-		You are connected 
-	<% else %>
-		<a class="btn btn-primary"> connect </a>
-	<% end %>
-<% end %>
+
+<div class="row no-gutters" style="margin-top: 20px;">
+	<div class="container-fluid col-md-2 offset-md-2">
+			<%= image_tag(@profile.propic.url , :class => "img-fluid rounded-circle" ,:size =>"350x350")  %> 
+		<div class="text-center">
+			<h2 ><%=  @profile.name %></h2>
+			
+			<% if @owner %>
+			
+				<%= link_to "edit", edit_recruiter_path(@profile) %>
+				<%= link_to "logout", destroy_user_session_path, :method => :delete %>
+			
+			<% end %>
+		
+		</div>
+	
+	</div>	
+		<div class="container-fluid col-md-4 info ">
+
+			<h4><i> Recruiter </i></h4>
+
+				<p class="xl"> 
+					<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+					<%= @profile.school %> 
+				</p>
+				<p class="xl">
+					<i class="fa fa-globe" aria-hidden="true"></i>
+					<% @country.each do |f| %>
+					<%= f.name %>
+					<% end %> 
+				</p>
+				<div class="bg-light-gray">
+				<p class="xl"> About <%= @profile.name %>:</p>
+				<p class="large"><%= @profile.bio %> </p> 
+				</div>
+		</div>	
+		<div class="col-md-3"></div>
+	
+</div>

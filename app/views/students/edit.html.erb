@@ -1,12 +1,16 @@
 <div class="container-fluid col-md-8 col-offset-2">
 	<div class="form-group">
     <%= form_for(@student) do |f| %>
-      Profile Picture <%= f.file_field :propic, :class =>"form-control" %>
-		  Name <%= f.text_field :name, :class =>"form-control" %>
+      Profile Picture <%= f.file_field :propic, :class =>"form-control col-md-3" %>
+		  Name <%= f.text_field :name, :class =>"form-control col-md-3" %>
 		  Biography  <%= f.text_area :bio, :class =>"form-control" %>
-		  GPA <%= f.number_field :gpa, :class =>"form-control text-field", step: :any%>
-		  School <%= f.text_field :school, :class =>"form-control"%>
-	</div>
+		  GPA <%= f.number_field :gpa, :class =>"form-control text-field col-md-3", step: :any%>
+		  School <%= f.text_field :school, :class =>"form-control col-md-4"%>
+		  Country <%= text_field_tag :country, "", :class =>"form-control col-md-3" %>
+		  Languages Spoken (seperate languages spoken with a comma) <%= text_area_tag "languages","" , :class =>"form-control col-md-4" %>
+		  Programs of Interest(seperate areas of interest with a comma) <%= text_area_tag "programs","" , :class =>"form-control col-md-4" %>
+		 
 		  <%= f.submit "Submit", :class =>"btn btn-primary" %>
 		<% end %>
+	</div>
 </div>

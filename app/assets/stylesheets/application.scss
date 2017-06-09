@@ -29,6 +29,10 @@
     border-color: #1D2731;
     margin-top: 20px;
 }
+
+.info{
+    margin-top: 50px;
+}
 // Global Components
 
 body {
@@ -56,6 +60,10 @@ p {
 
 p.large {
     font-size: 16px;
+}
+
+p.xl {
+    font-size: 24px;
 }
 
 a,

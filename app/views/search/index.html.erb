@@ -18,9 +18,7 @@
 </div>
 
 <div class="row container-fluid" >
-
   <% if @view_type == "Recruiter"  %>
-
     <% @users.each do |i| %>
       <%= render partial: "stud_profile", locals: {student: i.meta} %>
     <% end %>

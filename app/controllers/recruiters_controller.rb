@@ -2,6 +2,7 @@ class RecruitersController < ApplicationController
 
 	def show
 		@profile = Recruiter.find(params[:id])
+		@country = @country = Country.where(:user_id => User.where(:meta_type => "Recruiter", :meta_id => @profile.id))
 		if user_signed_in?
 			@owner = User.is_owner?(current_user,@profile)
 		end
@@ -18,6 +19,7 @@ class RecruitersController < ApplicationController
 	def edit
 		recruiter = Recruiter.find(params[:id])
 		if user_signed_in? && User.is_owner?(current_user, recruiter)
+
 			@recruiter = recruiter
 		else
 			redirect_to root_url
@@ -26,6 +28,7 @@ class RecruitersController < ApplicationController
 
 	def update
 		if current_user.meta.update(recruiter_params)
+			Country.new(:name => params[:country], :user_id => current_user.id).save
 			redirect_to root_url
 		else
 			flash[:danger] = "error"
@@ -39,7 +42,7 @@ class RecruitersController < ApplicationController
 	private
 		def recruiter_params
 
-			params.require(:recruiter).permit(:name, :bio, :propic)
+			params.require(:recruiter).permit(:name, :bio, :propic, :school)
 
 		end
 end
