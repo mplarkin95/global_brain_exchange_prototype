@@ -1,6 +1,7 @@
 
 <h2><%=  @profile.name %></h2>
 <h3><i> Student </i></h3>
+<%= image_tag @profile.propic.url, :size => "100x100" %><br />
 	School Name: <%= @profile.school %><br />
 	GPA: 
 	<%= @profile.gpa %><hr />
