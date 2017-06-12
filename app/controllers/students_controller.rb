@@ -40,7 +40,7 @@ class StudentsController < ApplicationController
 			end
 
 
-			redirect_to root_url
+			redirect_to student_url(current_user.meta_id)
 		else
 			flash[:danger] = "error"
 			redirect_to root_url

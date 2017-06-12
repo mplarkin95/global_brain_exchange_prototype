@@ -32,7 +32,7 @@ class RecruitersController < ApplicationController
 
 	def update
 		if current_user.meta.update(recruiter_params)
-			redirect_to root_url
+			redirect_to recruiter_url(current_user.meta_id)
 		else
 			flash[:danger] = "error"
 			redirect_to root_url
