@@ -13,7 +13,7 @@ group :development, :test do
 end
 # Use mysql as the database for Active Record in production
 group :production do
-  gem 'mysql2'
+  gem 'pg'
 end
 # Use mysql as the database
 gem 'yaml_db'
