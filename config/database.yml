@@ -22,6 +22,6 @@ test:
 
 production:
   <<: *default
-  database: db/production_db
+  database: gbx_production
   username: gbxadmin
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
