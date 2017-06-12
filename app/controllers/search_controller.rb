@@ -68,11 +68,11 @@ class SearchController < ApplicationController
 	private
 
 	def recruiter_search_simple(users, r_name)
-		return users.joins(:recruiter).where(["recruiters.name LIKE ?", "%#{r_name}%"]).where.not("recruiters.name is '' ")
+		return users.joins(:recruiter).where(["recruiters.name LIKE ?", "%#{r_name}%"]).where.not("recruiters.name is \'\' ")
 	end
 
 	def student_search_simple(users, s_name, gpa)
-		s_users = users.joins(:student).where(["students.name LIKE ?", "%#{s_name}%"]).where.not("students.name is '' ")
+		s_users = users.joins(:student).where(["students.name LIKE ?", "%#{s_name}%"]).where.not("students.name is \'\' ")
 		if gpa == ''
 			gpa = 0
 		end
