@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170610211653) do
     t.integer  "gpa"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.         "pdf"
     t.string   "propic_file_name"
     t.string   "propic_content_type"
     t.integer  "propic_file_size"

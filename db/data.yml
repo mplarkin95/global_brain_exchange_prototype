@@ -1,0 +1,288 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - '2017-06-12 18:13:19.493539'
+    - '2017-06-12 18:13:19.493539'
+
+---
+field_interests:
+  columns:
+  - id
+  - name
+  - student_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Computer Science
+    - 2
+    - '2017-06-12 18:15:02.337214'
+    - '2017-06-12 18:15:02.337214'
+  - - 2
+    - Mathematics
+    - 2
+    - '2017-06-12 18:15:02.404324'
+    - '2017-06-12 18:15:02.404324'
+
+---
+languages:
+  columns:
+  - id
+  - name
+  - user_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - English
+    - 2
+    - '2017-06-12 18:15:02.120521'
+    - '2017-06-12 18:15:02.120521'
+  - - 2
+    - Spanish
+    - 2
+    - '2017-06-12 18:15:02.213508'
+    - '2017-06-12 18:15:02.213508'
+  - - 3
+    - French
+    - 2
+    - '2017-06-12 18:15:02.276788'
+    - '2017-06-12 18:15:02.276788'
+
+---
+recruiters:
+  columns:
+  - id
+  - name
+  - search_preferences
+  - bio
+  - created_at
+  - updated_at
+  - school
+  - propic_file_name
+  - propic_content_type
+  - propic_file_size
+  - propic_updated_at
+  - country
+  records: 
+  - - 1
+    - Alex
+    - 
+    - alex's bio
+    - '2017-06-12 18:13:21.645450'
+    - '2017-06-12 18:13:21.645450'
+    - Yale
+    - 
+    - 
+    - 
+    - 
+    - Italy
+  - - 2
+    - Arthur
+    - 
+    - arthur's bio
+    - '2017-06-12 18:13:21.705885'
+    - '2017-06-12 18:13:21.705885'
+    - Harvard
+    - 
+    - 
+    - 
+    - 
+    - United States
+  - - 3
+    - Alex
+    - 
+    - alex's bio
+    - '2017-06-12 18:13:38.504254'
+    - '2017-06-12 18:13:38.504254'
+    - Yale
+    - 
+    - 
+    - 
+    - 
+    - Italy
+  - - 4
+    - Arthur
+    - 
+    - arthur's bio
+    - '2017-06-12 18:13:38.602010'
+    - '2017-06-12 18:13:38.602010'
+    - Harvard
+    - 
+    - 
+    - 
+    - 
+    - United States
+
+---
+students:
+  columns:
+  - id
+  - name
+  - school
+  - bio
+  - gpa
+  - created_at
+  - updated_at
+  - propic_file_name
+  - propic_content_type
+  - propic_file_size
+  - propic_updated_at
+  - country
+  records: 
+  - - 1
+    - Matt
+    - Clark
+    - Matt's  bio
+    - 4
+    - '2017-06-12 18:13:21.509517'
+    - '2017-06-12 18:13:21.509517'
+    - 
+    - 
+    - 
+    - 
+    - United States
+  - - 2
+    - Sam
+    - Amherst
+    - Sam's Bio
+    - 2
+    - '2017-06-12 18:13:21.564041'
+    - '2017-06-12 18:13:21.564041'
+    - 
+    - 
+    - 
+    - 
+    - Paraguay
+  - - 3
+    - Matt
+    - Clark
+    - Matt's  bio
+    - 4
+    - '2017-06-12 18:13:38.306984'
+    - '2017-06-12 18:13:38.306984'
+    - 
+    - 
+    - 
+    - 
+    - United States
+  - - 4
+    - Sam
+    - Amherst
+    - Sam's Bio
+    - 2
+    - '2017-06-12 18:13:38.419684'
+    - '2017-06-12 18:13:38.419684'
+    - 
+    - 
+    - 
+    - 
+    - Paraguay
+
+---
+users:
+  columns:
+  - id
+  - email
+  - encrypted_password
+  - reset_password_token
+  - reset_password_sent_at
+  - remember_created_at
+  - sign_in_count
+  - current_sign_in_at
+  - last_sign_in_at
+  - current_sign_in_ip
+  - last_sign_in_ip
+  - created_at
+  - updated_at
+  - meta_id
+  - meta_type
+  - profile_picture_file_name
+  - profile_picture_content_type
+  - profile_picture_file_size
+  - profile_picture_updated_at
+  records: 
+  - - 1
+    - matt@gbx.com
+    - "$2a$11$OgOShrof8KagQ0ssbosep.QEQSE9YVOm0NVXgbaumEmvOJ8kjx5mq"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - '2017-06-12 18:13:21.972840'
+    - '2017-06-12 18:13:21.972840'
+    - 1
+    - Student
+    - 
+    - 
+    - 
+    - 
+  - - 2
+    - sam@gbx.com
+    - "$2a$11$E50CyugXyNQLMD6hwgKLHON0tqLtRatag5xZNm.u0VWq/9aphD3HS"
+    - 
+    - 
+    - '2017-06-12 18:14:29.499708'
+    - 1
+    - '2017-06-12 18:14:29.639144'
+    - '2017-06-12 18:14:29.639144'
+    - 127.0.0.1
+    - 127.0.0.1
+    - '2017-06-12 18:13:22.145844'
+    - '2017-06-12 18:14:29.639817'
+    - 2
+    - Student
+    - 
+    - 
+    - 
+    - 
+  - - 3
+    - alex@gbx.com
+    - "$2a$11$8LNlkoNnX/6WRNIYJnrROun7XsGqi4W/cGRe7sUmN5Fvn.9VxReOq"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - '2017-06-12 18:13:22.317800'
+    - '2017-06-12 18:13:22.317800'
+    - 1
+    - Recruiter
+    - 
+    - 
+    - 
+    - 
+  - - 4
+    - arthur@gbx.com
+    - "$2a$11$lBdA75zlrCE5QkvDbaL.qeBOn9BljIW.LubxB3YxecR1s.uUsxcKS"
+    - 
+    - 
+    - 
+    - 0
+    - 
+    - 
+    - 
+    - 
+    - '2017-06-12 18:13:22.492399'
+    - '2017-06-12 18:13:22.492399'
+    - 2
+    - Recruiter
+    - 
+    - 
+    - 
+    - 
