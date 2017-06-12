@@ -1,24 +1,21 @@
 <div class="container-fluid col-md-12 text-center" >
-<h3> Members directory </h3>
+<h3> Members Search </h3>
 <%= form_tag("/search/", method: "get") do %>
   <%= label_tag(:name, "Name:") %>
   <%= text_field_tag(:name) %>
-  <% if !user_signed_in? %>
 	<%= label_tag(:type, "Account search") %>
 	<%= select_tag(:type, options_for_select(["Recruiter","Student"],"Student"), :class=> "dropdown") %>	
-  <% end %>
 
-  <% if @view_type == "Recruiter" %>
-  	<%= label_tag(:gpa, "Minimum GPA") %>
-  	<%= number_field_tag(:gpa, class: :text_field, step: :any, maximum: 4.3) %>
-  <% end %>
-
+  
   <%= submit_tag("Search", :class => "btn btn-primary") %>
 <% end %>
+  <%= link_to("Advanced Student Search", "/search/students" ) %> /
+  <%= link_to("Advanced Recruiter Search", "/search/recruiters" ) %>
+
 </div>
 
 <div class="row container-fluid" >
-  <% if @view_type == "Recruiter"  %>
+  <% if @search_type == "Student"  %>
     <% @users.each do |i| %>
       <%= render partial: "stud_profile", locals: {student: i.meta} %>
     <% end %>

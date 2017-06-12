@@ -16,6 +16,8 @@
 @import "mixins.scss";
 @import "font-awesome";
 @import "bootstrap";
+@import "select2";
+@import "select2-bootstrap";
 
 
 
@@ -32,6 +34,10 @@
 
 .info{
     margin-top: 50px;
+}
+.v-space{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 // Global Components
 

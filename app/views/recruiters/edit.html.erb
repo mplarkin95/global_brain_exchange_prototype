@@ -1,11 +1,22 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".select_search").select2({
+    theme: "bootstrap",
+    tags: true
+  	});
+  });
+</script>
 
 <div class="container-fluid col-md-8 ">
 	<div class="form-group">
     <%= form_for(@recruiter) do |f| %>
+
     <%= f.label :propic %>
     <div class="col-md-3">  
+    <%= image_tag(@recruiter.propic.url , :class => "img-fluid rounded-circle" ,:size =>"350x350")  %> 
       <%= f.file_field :propic, :class =>"form-control"%>
     </div>
+    
 		<%= f.label :name %>
 		<div class="col-md-3">
 			<%= f.text_field :name, :class =>"form-control" %>
@@ -20,7 +31,7 @@
 		</div>
 		Country
 		<div class="col-md-3">
-			<%= text_field_tag :country, "", :class =>"form-control" %>
+			<%= select_tag "recruiter[country]", options_for_select(@countries, @recruiter.country), :class => "select_search" %>
 		</div>
 		
 		<%= f.submit "Submit", :class =>"btn btn-primary" %>

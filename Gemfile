@@ -47,6 +47,8 @@ gem 'has_friendship'
 
 gem 'font-awesome-rails'
 
+gem 'select2-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

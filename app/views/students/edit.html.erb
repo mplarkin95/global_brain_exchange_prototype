@@ -1,16 +1,47 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".select_search").select2({
+    theme: "bootstrap",
+    tags: true
+  	});
+  });
+
+  $(document).ready(function(){
+  $(".select_search_mult_lang").select2({
+    theme: "bootstrap",
+   	tags: true,
+  	});
+  });
+
+
+
+  $(document).ready(function(){
+  $(".select_search_mult_programs").select2({
+    theme: "bootstrap",
+    tags: true
+  	});
+  });
+
+$('.select_search_mult_lang').val(<%= @languages.to_s.html_safe %>).trigger("change");
+
+$('.select_search_mult_programs').val(<%= @programs.to_s.html_safe %>).trigger("change");
+</script>
+
 <div class="container-fluid col-md-8 col-offset-2">
 	<div class="form-group">
     <%= form_for(@student) do |f| %>
+    <%= @languages%>
       Profile Picture <%= f.file_field :propic, :class =>"form-control col-md-3" %>
 		  Name <%= f.text_field :name, :class =>"form-control col-md-3" %>
 		  Biography  <%= f.text_area :bio, :class =>"form-control" %>
 		  GPA <%= f.number_field :gpa, :class =>"form-control text-field col-md-3", step: :any%>
 		  School <%= f.text_field :school, :class =>"form-control col-md-4"%>
-		  Country <%= text_field_tag :country, "", :class =>"form-control col-md-3" %>
-		  Languages Spoken (seperate languages spoken with a comma) <%= text_area_tag "languages","" , :class =>"form-control col-md-4" %>
-		  Programs of Interest(seperate areas of interest with a comma) <%= text_area_tag "programs","" , :class =>"form-control col-md-4" %>
+		  Country <%= select_tag "student[country]", options_for_select(@countries, @student.country), :class => "select_search" %>
+		  Languages Spoken (seperate languages spoken with a comma) <%= select_tag "languages[]", options_for_select(@language_list) , :multiple => "multiple", :class =>"select_search_mult_lang col-md-4"  %>
+		  Programs of Interest(seperate areas of interest with a comma) <%= select_tag "programs[]", options_for_select(@program_list) , :multiple => "multiple",:class =>"select_search_mult_programs col-md-4" %>
 		 
 		  <%= f.submit "Submit", :class =>"btn btn-primary" %>
 		<% end %>
 	</div>
 </div>
+

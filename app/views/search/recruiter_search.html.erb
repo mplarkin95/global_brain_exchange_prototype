@@ -1,0 +1,39 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".select_search").select2();
+  });
+</script>
+<div class="container-fluid">
+<div class="row">
+	<div class="container-fluid col-md-2" >
+		<%= form_tag("/search/recruiters", method: "get") do %>
+		  <%= label_tag(:name, "Name:") %>
+		  <%= text_field_tag(:name, "", :class => "form-control") %>
+		
+	</div>
+
+</div>
+<div class="row " >
+	<div class="container-fluid col-md-4 v-space text-center">
+		Country: <%= select_tag "country", options_for_select(@countries), :include_blank => true, :class => "select_search" %>
+
+		School: <%= select_tag "school", options_for_select(@schools), :include_blank => true,  :class => "select_search" %>
+	</div>
+</div>
+<div class= "row">
+<div class="container-fluid col-md-3 text-center">
+ <%= submit_tag("Search", :class => "btn btn-primary") %>
+ <% end %>
+</div>
+</div>
+</div>
+
+
+<div class="row container-fluid" >
+
+    <% @users.each do |i| %>
+      <%= render partial: "rec_profile", locals: {recruiter: i.meta} %>
+    <% end %>
+  
+
+</div>

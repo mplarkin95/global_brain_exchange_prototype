@@ -1,7 +1,6 @@
 class StudentsController < ApplicationController
 	def show
 		@profile = Student.find(params[:id])
-		@country = Country.where(:user_id => User.where(:meta_type => "Student", :meta_id => @profile.id))
 		@languages = Language.where(:user_id => User.where(:meta_type => "Student", :meta_id => @profile.id))
 		@interest = FieldInterest.where(:student_id => @profile.id)
 		if user_signed_in?
@@ -20,6 +19,11 @@ class StudentsController < ApplicationController
 		student = Student.find(params[:id])
 		if user_signed_in? && User.is_owner?(current_user,student)
 			@student = student
+			@countries =  (Student.distinct.pluck(:country) + Recruiter.distinct.pluck(:country)).uniq
+			@language_list = Language.distinct.pluck(:name)
+			@program_list = FieldInterest.distinct.pluck(:name)
+			@languages = Language.where(:user_id => current_user.meta.id).pluck(:name)
+			@programs = FieldInterest.where(:student_id => current_user.id).pluck(:name)
 		else
 			redirect_to root_url
 		end
@@ -27,18 +31,14 @@ class StudentsController < ApplicationController
 	
 	def update
 		if current_user.meta.update(student_params)
-			
-			language_list = params[:languages].split(',')
-			language_list.each do |f|
-				Language.new(:name => f.strip, :user_id => current_user.id).save
+		
+			if params[:languages] != ''
+				language_update
+			end
+			if params[:programs] != ''
+				programs_update
 			end
 
-			program_list = params[:programs].split(',')
-			program_list.each do |f|
-				FieldInterest.new(:name => f.strip, :student_id => current_user.meta_id).save
-			end
-
-			Country.new(:name => params[:country].strip, :user_id => current_user.id ).save
 
 			redirect_to root_url
 		else
@@ -50,6 +50,63 @@ class StudentsController < ApplicationController
 
 	private
 		def student_params
-			params.require(:student).permit(:name, :school, :bio, :gpa, :propic)
+			params.require(:student).permit(:name, :school, :bio, :gpa, :propic ,:country)
 		end
+
+		def language_update
+
+			# language list update
+			cur_languages = Language.where(:user_id => current_user.id).pluck(:name)
+
+			
+			#parse input for parameters			
+			language_list = params[:languages]
+
+
+			#find deleted and newly created languages
+			new_langs = (language_list - cur_languages) - [""]
+
+			deleted_langs = (cur_languages - language_list) - [""] 
+
+			#update
+			new_langs.each do |f|
+				if f != ''
+					Language.new(:name => f.strip, :user_id => current_user.id).save
+				end
+			end
+
+			deleted_langs.each do |f|
+				Language.where(:name => f, :user_id => current_user.id)[0].destroy
+			end
+		end
+
+		def programs_update
+
+			#Field of Interest update
+			cur_programs = FieldInterest.where(:student_id => current_user.meta_id).pluck(:name)
+
+
+			program_list = params[:programs]
+
+			#find deleted and newly created programs
+
+			new_programs = (program_list - cur_programs) - [""]
+			deleted_programs = (cur_programs - program_list) - [""]
+
+			#update
+			new_programs.each do |f|
+				if f != ''
+					FieldInterest.new(:name => f.strip, :student_id => current_user.meta_id).save
+				end
+			end
+
+			deleted_programs.each do |f|
+				FieldInterest.where(:name => f, :student_id => current_user.meta_id)[0].destroy
+			end
+
+
+
+		end
+
+
 end

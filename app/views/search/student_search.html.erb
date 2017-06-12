@@ -1,0 +1,50 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+  $(".select_search").select2(
+  );
+});
+</script>
+<div class="container-fluid">
+<div class="row">
+	<div class="container-fluid col-md-4" >
+		<%= form_tag("/search/students", method: "get") do %>
+		<div class = "row">
+			<div class="col-md-8">
+			  <%= label_tag(:name, "Name:") %>
+			  <%= text_field_tag(:name, "", :class => "form-control") %>
+			</div>
+		
+			<div class="col-md-4">
+			 <%= label_tag(:gpa, "Minimum GPA:") %>
+			  <%= text_field_tag(:gpa, "", :class => "form-control") %>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+<div class="row " >
+	<div class="container-fluid col-md-6 v-space text-center">
+		Country: <%= select_tag "country", options_for_select(@countries), :include_blank => true, :class => "select_search" %>
+		Language: <%= select_tag "language", options_for_select(@languages), :include_blank => true, :class => "select_search" %>
+		Program: <%= select_tag "program", options_for_select(@programs), :include_blank => true, :class => "select_search" %>
+
+	</div>
+</div>
+<div class= "row">
+<div class="container-fluid col-md-3 text-center">
+ <%= submit_tag("Search", :class => "btn btn-primary") %>
+ <% end %>
+</div>
+</div>
+</div>
+
+
+<div class="row container-fluid" >
+
+    <% @users.each do |i| %>
+      <%= render partial: "stud_profile", locals: {student: i.meta} %>
+    <% end %>
+  
+
+</div>

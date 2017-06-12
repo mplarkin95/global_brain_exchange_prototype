@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-students = Student.create([{name: "Matt", bio:"Matt's  bio", gpa: 4.0, school: 'Clark'}, {name: "Sam", bio: "Sam's Bio",gpa: 2.0, school: "Amherst"}])
+students = Student.create([{name: "Matt", bio:"Matt's  bio", gpa: 4.0, school: 'Clark', country: "United States"}, {name: "Sam", bio: "Sam's Bio",gpa: 2.0, school: "Amherst", country: "Paraguay"}])
 
-recruiters = Recruiter.create([{name: "Alex",bio: "alex's bio", school: "Yale"},{name: "Arthur", bio:"arthur's bio", school: "Yale"}])
+recruiters = Recruiter.create([{name: "Alex",bio: "alex's bio", school: "Yale", country: "Italy"},{name: "Arthur", bio:"arthur's bio", school: "Harvard", country: "United States"}])
 
 users = User.create([
 	{email: "matt@gbx.com",password: "qweqwe", password_confirmation: "qweqwe", meta_id: 1, meta_type: "Student"},
