@@ -3,7 +3,6 @@ class SearchController < ApplicationController
 	def index
 		if user_signed_in?
 			if current_user.meta_type == "Recruiter"
-				print "redirecting"
 				redirect_to search_students_url
 				return
 			else
@@ -17,7 +16,7 @@ class SearchController < ApplicationController
 			@users = User.all
 			@search_type = params[:type] 
 			if params[:type] == "Student"
-				@users = student_search_simple(@users,params[:name])
+				@users = student_search_simple(@users,params[:name],0)
 			elsif params[:type] == "Recruiter"
 				@users = recruiter_search_simple(@users,params[:name])
 			else
@@ -29,21 +28,21 @@ class SearchController < ApplicationController
 	def student_search
 		@countries = Student.distinct.pluck(:country)
 		@users = student_search_simple(User.all, params[:name], params[:gpa])
-		@languages = Language.group(:name)
-		@programs = FieldInterest.group(:name)
+		@languages = Language.group(:name).pluck(:name)
+		@programs = FieldInterest.group(:name).pluck(:name)
 
 		if params[:country] != ''
 			@users = @users.where(["students.country is ?","#{params[:country]}"])
 		end
 
 		if params[:language] != ''
-			l = Language.where(:name => params[:language]).pluck(:student_id)
-			@users = @users.where(["students.id is ?","#{l}"])
+			l = Language.where(:name => params[:language]).pluck(:user_id)
+			@users = @users.where(:id => l)
 		end
 
 		if params[:program] != ''
 			l = FieldInterest.where(:name => params[:program]).pluck(:student_id)
-			@users = @users.where(["students.id is ?","#{l}"])
+			@users = @users.where(:meta_id => l)
 		end
 
 
