@@ -16,7 +16,7 @@ class SearchController < ApplicationController
 			@users = User.all
 			@search_type = params[:type] 
 			if params[:type] == "Student"
-				@users = student_search_simple(@users,params[:name],0)
+				@users = student_search_simple(@users,params[:name])
 			elsif params[:type] == "Recruiter"
 				@users = recruiter_search_simple(@users,params[:name])
 			else
