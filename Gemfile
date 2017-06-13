@@ -33,6 +33,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use paperclip to maintain transcripts and profile pictures
 gem 'paperclip', '~> 5.0.0'
+gem 'aws-sdk', '~> 2.3'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
