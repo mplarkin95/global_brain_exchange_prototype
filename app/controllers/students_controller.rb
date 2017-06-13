@@ -31,13 +31,10 @@ class StudentsController < ApplicationController
 	
 	def update
 		if current_user.meta.update(student_params)
-		
-			if params[:languages] != ''
+		 
 				language_update
-			end
-			if params[:programs] != ''
+
 				programs_update
-			end
 
 
 			redirect_to student_url(current_user.meta_id)
@@ -58,15 +55,17 @@ class StudentsController < ApplicationController
 			# language list update
 			cur_languages = Language.where(:user_id => current_user.id).pluck(:name)
 
-			
-			#parse input for parameters			
-			language_list = params[:languages]
+			if params[:languages]
+				language_list = params[:languages]
+			else
+				language_list = []
+			end
 
 
 			#find deleted and newly created languages
-			new_langs = (language_list - cur_languages) - [""]
+			new_langs = (language_list - cur_languages) 
 
-			deleted_langs = (cur_languages - language_list) - [""] 
+			deleted_langs = (cur_languages - language_list) 
 
 			#update
 			new_langs.each do |f|
@@ -85,13 +84,16 @@ class StudentsController < ApplicationController
 			#Field of Interest update
 			cur_programs = FieldInterest.where(:student_id => current_user.meta_id).pluck(:name)
 
-
-			program_list = params[:programs]
+			if params[:programs]
+				program_list = params[:programs]
+			else
+				program_list = []
+			end
 
 			#find deleted and newly created programs
 
-			new_programs = (program_list - cur_programs) - [""]
-			deleted_programs = (cur_programs - program_list) - [""]
+			new_programs = (program_list - cur_programs) 
+			deleted_programs = (cur_programs - program_list)
 
 			#update
 			new_programs.each do |f|

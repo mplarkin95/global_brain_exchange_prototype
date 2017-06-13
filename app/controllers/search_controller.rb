@@ -27,12 +27,16 @@ class SearchController < ApplicationController
 
 	def student_search
 		@countries = Student.distinct.pluck(:country)
-		@users = student_search_simple(User.all, params[:name], params[:gpa])
+		@users = student_search_simple(User.all, params[:name])
 		@languages = Language.group(:name).pluck(:name)
 		@programs = FieldInterest.group(:name).pluck(:name)
 
-		if params[:country] != ''
-			@users = @users.where(["students.country is ?","#{params[:country]}"])
+		if params[:country] && params[:country]!= ''
+			@users = @users.where(["students.country = ?","#{params[:country]}"])
+		end
+
+		if params[:gpa] && params[:gpa] != ''
+			@users = @users.where(["students.gpa >= #{params[:gpa]}"])
 		end
 
 		if params[:language] != ''
@@ -55,11 +59,11 @@ class SearchController < ApplicationController
 
 		@users = User.all
 		@users = recruiter_search_simple(@users,params[:name])
-		if params[:school] != ''
-			@users = @users.where(["recruiters.school is ?","#{params[:school]}"])
+		if params[:school] && params[:school] != ''
+			@users = @users.where(["recruiters.school = ?","#{params[:school]}"])
 		end
-		if params[:country] != ''
-			@users = @users.where(["recruiters.country is ?","#{params[:country]}"])
+		if params[:country] && params[:country] != ''
+			@users = @users.where(["recruiters.country = ?","#{params[:country]}"])
 
 		end
 		
@@ -68,15 +72,12 @@ class SearchController < ApplicationController
 	private
 
 	def recruiter_search_simple(users, r_name)
-		return users.joins(:recruiter).where(["recruiters.name LIKE ?", "%#{r_name}%"]).where.not("COALESCE(recruiters.name, '') is '' ")
+		return users.joins(:recruiter).where(["recruiters.name LIKE ?", "%#{r_name}%"])
 	end
 
-	def student_search_simple(users, s_name, gpa)
-		s_users = users.joins(:student).where(["students.name LIKE ?", "%#{s_name}%"]).where.not("COALESCE(students.name, '') is '' ")
-		if gpa == ''
-			gpa = 0
-		end
-		return s_users.where(["students.gpa > ?","#{gpa}"])
+	def student_search_simple(users, s_name)
+		return users.joins(:student).where(["students.name LIKE ?", "%#{s_name}%"])
+		
 
 		
 	end

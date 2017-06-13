@@ -30,7 +30,6 @@ $('.select_search_mult_programs').val(<%= @programs.to_s.html_safe %>).trigger("
 <div class="container-fluid col-md-8 col-offset-2">
 	<div class="form-group">
     <%= form_for(@student) do |f| %>
-    <%= @languages%>
       Profile Picture <%= f.file_field :propic, :class =>"form-control col-md-3" %>
 		  Name <%= f.text_field :name, :class =>"form-control col-md-3" %>
 		  Biography  <%= f.text_area :bio, :class =>"form-control" %>
