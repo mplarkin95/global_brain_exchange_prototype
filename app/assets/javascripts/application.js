@@ -10,9 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require select2
 //= require jquery
 //= require jquery_ujs
+//= require tether
 //= require bootstrap
 //= require turbolinks
-//= require select2
 //= require_tree .

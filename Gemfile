@@ -11,12 +11,16 @@ gem 'rails', '~> 5.0.2'
 #group :development, :test do
 #  gem 'sqlite3'
 #end
+
+gem 'tether-rails'
 # Use postgres as the database for Active Record in production
 gem 'pg'
 # Use mysql as the database
 gem 'yaml_db'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Use SCSS for stylesheets
 gem 'bootstrap' 
 gem 'sass-rails', '~> 5.0'
@@ -30,8 +34,6 @@ gem 'coffee-rails', '~> 4.2'
 # Use paperclip to maintain transcripts and profile pictures
 gem 'paperclip', '~> 5.0.0'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
