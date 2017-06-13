@@ -22,8 +22,8 @@ class StudentsController < ApplicationController
 			@countries =  (Student.distinct.pluck(:country) + Recruiter.distinct.pluck(:country)).uniq
 			@language_list = Language.distinct.pluck(:name)
 			@program_list = FieldInterest.distinct.pluck(:name)
-			@languages = Language.where(:user_id => current_user.meta.id).pluck(:name)
-			@programs = FieldInterest.where(:student_id => current_user.id).pluck(:name)
+			@languages = Language.where(:user_id => current_user.id).pluck(:name)
+			@programs = FieldInterest.where(:student_id => current_user.meta_id).pluck(:name)
 		else
 			redirect_to root_url
 		end
